@@ -2,15 +2,21 @@
 <html>
     <head>
         <title>TODO List</title>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <div class="box">
             <h1>Todo List</h1>
         </div>
         <div class="box">
-            <li>Create videos</li>
-            <li>Update changes on Git</li>
-            <li><%= exej %></li>
+            <% deyej.forEach(function(item){ %>
+                <form action="/delete" method="POST">
+                    <div class="item">
+                        <input type="checkbox" value="<%= item._id %>" name="checkbox1" onchange="this.form.submit()">
+                        <p> <%= item.name %></p>
+                    </div>
+                </form>
+            <% }); %>
             <form action="/" method="post">
                 <input type="text" name="ele1" placeholder="Enter the text">
                 <button type="submit">+</button>
